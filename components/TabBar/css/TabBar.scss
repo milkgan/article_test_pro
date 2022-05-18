@@ -1,0 +1,41 @@
+.tab-container {
+	@include flex();
+	width: 100%;
+	border-bottom: 1rpx solid #f5f5f5;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	.tab-scroll {
+		flex: 1;
+		height: 90rpx;
+		box-sizing: border-box;
+		overflow: hidden;
+		.tab-scroll-box {
+			@include flex(fex-start);
+			height: 90rpx;
+			box-sizing: border-box;
+			
+			.tab-scroll-item {
+				flex-shrink: 0;
+				padding: 0 20rpx;
+				color: #333333;
+				font-size: 28rpx;
+				&.active {
+					color: $base-color;
+				}
+			}
+		}
+	}
+	.tab-icons {
+		width: 90rpx;
+		position: relative;
+		@include flex(center);
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			height: 32rpx;
+			width: 2rpx;
+			background-color: #ddd;
+		}
+	}
+}

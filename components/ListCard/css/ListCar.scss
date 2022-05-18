@@ -1,0 +1,92 @@
+.list-card-container {
+	.list-card {
+		margin : 20rpx;
+		padding: 20rpx;
+		border-radius: 16rpx;
+		box-shadow: 0 0 10px 2rpx rgba(0,0,0,.1);
+		@include flex();
+		.list-crad-img {
+			width: 120rpx;
+			height: 120rpx;
+			border-radius: 10rpx;
+			overflow: hidden;
+			flex-shrink: 0;
+			image {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.list-card-content {
+			width: 100%;
+			height: 120rpx;
+			font-size: 28rpx;
+			padding-left: 20rpx;	
+			@include flex(space-between, column);
+			.list-crad-content-title {
+				width: 100%;
+				@include flex();
+				align-items: flex-start;
+			}
+		}
+		.list-crad-content-desc {
+				@include flex();
+				width: 100%;
+				align-items: flex-start;
+				font-size: 20rpx;
+				.article-type {
+					color: $base-color;
+					padding: 0rpx 10rpx;
+					border: 1px solid $base-color;
+					border-radius: 30rpx;
+				}
+				.brower-number {
+					color: $c-9;
+				}
+			}
+			&.mode-column {
+				@include flex(space-between, column);
+				.list-crad-top {
+					@include flex();
+					width: 100%;
+					font-size: 28rpx;
+				}
+				.list-card-middle {
+					margin: 16rpx 0;
+					@include flex();
+					width: 100%;
+					.image-container {
+						
+						width: 32%;
+						height: 140rpx;
+						image {
+							width: 100%;
+							height: 100%;
+						}
+						border-radius: 10rpx;
+						overflow: hidden;
+					}
+				}
+			}
+			&.mode-image {
+				@include flex(space-between, column);
+				.list-crad-top {
+					width: 100%;
+					height: 200rpx;
+					image {
+						width: 100%;
+						height: 100%;
+						border-radius: 10rpx;
+						overflow: hidden;
+					}
+				}
+				.list-card-middle {
+					margin: 16rpx 0;
+					@include flex();
+					width: 100%;
+					font-size: 28rpx;
+				}
+			}
+	}
+	
+	
+}
