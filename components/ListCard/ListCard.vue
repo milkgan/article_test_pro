@@ -9,7 +9,7 @@
 			<view class="list-card-content">
 				<view class="list-crad-content-title">
 					<text>{{ item.title }}</text>
-					<SaveLikes></SaveLikes>
+					<SaveLikes :item="item"></SaveLikes>
 				</view>
 				<view class="list-crad-content-desc">
 					<view class="article-type">{{ item.classify }}</view>
@@ -21,7 +21,7 @@
 		<view class="list-card mode-column" v-if="item.mode === 'column'">
 			<view class="list-crad-top">
 				<text>{{ item.title }}</text>
-				<SaveLikes></SaveLikes>
+				<SaveLikes :item="item"></SaveLikes>
 			</view>
 			<view class="list-card-middle">
 				<!-- 最多显示3张图 -->
@@ -43,7 +43,7 @@
 			</view>
 			<view class="list-card-middle">
 				<text>{{ item.title }}</text>
-				<SaveLikes></SaveLikes>
+				<SaveLikes :item="item"></SaveLikes>
 			</view>
 			<view class="list-crad-content-desc list-crad-bottom">
 				<view class="article-type">{{ item.classify }}</view>

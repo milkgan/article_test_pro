@@ -15,7 +15,6 @@ export default ({name, data={}})=>{
 						title: result.msg
 					})
 				}
-				
 			},
 			fail(err) {
 				reject(err);

@@ -2,7 +2,7 @@
 	<view class="login-container">
 		<!-- 头部图片 -->
 		<view class="banner-bg">
-			<image src="../../static/img/login_bg.png" mode="aspectFill"></image>
+			<image src="../../../static/img/login_bg.png" mode="aspectFill"></image>
 		</view>
 		<!-- 导航 -->
 		<view class="login-nav">
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+	// import { mapMutations } from 'vuex';
 	export default {
 		data() {
 			return {
@@ -64,17 +65,41 @@
 				this.$refs.form.validate().then(res => {
 					uni.hideLoading()
 					console.log('表单数据信息：', res);
+					// 向后端发送登录请求
+					this._sendUserInfo({
+						...res,
+						type: this.type
+					})
 				}).catch(err => {
 					uni.hideLoading()
 					console.log('表单错误信息：', err);
 				})
+				
+			},
+			/* 向后端发送登录请求 */
+			async _sendUserInfo(data) {
+				const res = await this.$http.user_login(data);
+				// 登录成功跳转页面
+				if(res) {
+					this.updateUserInfo(res);
+					uni.showToast({
+						title: "登录成功",
+						icon: "none",
+					})
+					// showToast组件默认显示1.5秒
+					setTimeout(()=>{
+						uni.navigateBack();
+					}, 1500)
+				}
+				
 			},
 			/* 切换表单类型 */
 			changeFormType(type) {
 				this.type=type;
 				// 清空校验规则
 				this.$refs.form.clearValidate([]);
-			}
+			},
+			// ...mapMutations(['updateUserInfo'])
 		},
 		
 	}

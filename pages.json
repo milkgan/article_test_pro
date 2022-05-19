@@ -42,7 +42,7 @@
             
         }
         ,{
-            "path" : "pages/userInfo/login",
+            "path" : "pages/userInfo/login/login",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "用户登录",

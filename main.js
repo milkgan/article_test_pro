@@ -1,16 +1,20 @@
 import App from './App'
 import module from './ajax/api/index.js';
 import userMixin from './common/rulesMixin.js';
+import commonMixin from './common/commonMixin.js';
+import store from './store'
 
 Vue.prototype.$http = module;
 Vue.use(userMixin)
+Vue.use(commonMixin)
 
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({
-    ...App
+    ...App,
+	store
 })
 app.$mount()
 // #endif

@@ -9,3 +9,8 @@ export const get_article_list = data => ajax({
 	name: 'get_article_list',
 	data
 })
+
+export const update_save_likes = data => ajax({
+	name: 'update_save_likes',
+	data
+})
